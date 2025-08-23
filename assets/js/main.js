@@ -92,9 +92,8 @@
 							// Deactivate all articles (just in case one's already active).
 								$main_articles.removeClass('active');
 
-							// Hide header, footer.
+							// Hide header.
 								$header.hide();
-								$footer.hide();
 
 							// Show main, article.
 								$main.show();
@@ -166,9 +165,8 @@
 						// Show article.
 							setTimeout(function() {
 
-								// Hide header, footer.
+								// Hide header.
 									$header.hide();
-									$footer.hide();
 
 								// Show main, article.
 									$main.show();

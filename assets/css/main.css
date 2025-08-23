@@ -1697,3 +1697,19 @@ input, select, textarea {
 		body.is-preload #footer {
 			opacity: 0;
 		}
+
+/* Keep footer visible on article pages */
+	#footer,
+	body.is-article-visible #footer {
+		display: block !important;   /* beats inline display:none if it ever appears */
+		opacity: 1 !important;
+		transform: none !important;
+		filter: none !important;
+		z-index: 4;                  /* above background & articles */
+		position: relative;          /* makes z-index apply in most contexts */
+	}
+
+/* Remove vertical connector line from header/articles */
+	#header > *:before {
+		display: none !important;
+	}

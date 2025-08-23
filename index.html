@@ -19,19 +19,31 @@
 		<meta property="og:description" content="Secure, heated pickup lockers that keep takeout orders warm until customers arrive.">
 		<meta property="og:type" content="website">
 		<meta property="og:image" content="images/og/og-image.png">
-		<meta property="og:url" content="https://your-domain.example/">
+		<meta property="og:url" content="https://hotloc.mooo.com/">
 		<meta name="twitter:card" content="summary_large_image">
 
 		<!-- Basic theming -->
 		<meta name="theme-color" content="#111111">
 
 		<!-- Canonical (update to your prod URL) -->
-		<link rel="canonical" href="https://your-domain.example/">
+		<link rel="canonical" href="https://hotloc.mooo.com/">
 
 		<link rel="shortcut icon" href="images/favicons/HOTLOC_favicon.png" type="image/png">
 
 		<!-- Minimal CSP (tighten later; remove 'unsafe-inline' once you inline-nonce styles/scripts) -->
-		<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self'; font-src 'self' data:;">
+		<meta http-equiv="Content-Security-Policy" content="
+			default-src 'self';
+			base-uri 'self';
+			img-src 'self' data:;
+			style-src 'self' 'unsafe-inline';
+			script-src 'self';
+			connect-src 'self';
+			font-src 'self' data:;
+			frame-ancestors 'none';
+			object-src 'none';
+			form-action 'self';
+			upgrade-insecure-requests;
+		">
 
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
@@ -44,9 +56,6 @@
 
 				<!-- Header -->
 					<header id="header">
-						<div class="logo">
-							<!-- <span class="icon"></span> -->
-						</div>
 						<div class="content">
 							<div class="inner">
 								<h1>HotLoc</h1>
@@ -58,8 +67,10 @@
 						<nav>
 							<ul>
 								<li><a href="#about">About</a></li>
-								<li><a href="#login">Login</a></li>
-								<li><a href="#contact">Contact</a></li>
+								<li><a href="#creators">Creators</a></li>
+								<li><a href="#customer">Customers</a></li>
+								<li><a href="#employee">Employees</a></li>
+								<li><a href="#contact">Contact Us</a></li>
 								<!-- <li><a href="#elements">Elements</a></li> -->
 							</ul>
 						</nav>
@@ -172,13 +183,42 @@
 								<hr>
 							</article>
 
-						<!-- Login -->
-							<article id="login">
+						<!-- Customer -->
+							<article id="customer">
+								<h2 class="major">Customer</h2>
+								<p>
+									Please enter the PIN we sent you to unlock your order.
+								</p>
+								<form method="post" action="/pin" autocomplete="on">
+									<div class="fields">
+										<div class="field">
+											<label for="pin">PIN</label>
+											<input type="password" 
+														name="pin" 
+														id="pin" 
+														required
+														autocomplete="one-time-code"
+														inputmode="numeric" 
+														pattern="\d{4}" 
+														maxlength="4">
+										</div>
+
+										<!-- CSRF (server should inject a real token) -->
+										<input type="hidden" name="csrf_token" value="">
+									</div>
+									<ul class="actions">
+										<li><button type="submit" class="primary">Submit</button></li>
+									</ul>
+								</form>
+							</article>
+
+						<!-- Employee -->
+							<article id="employee">
 								<h2 class="major">Employee Login</h2>
 								<form method="post" action="/login" autocomplete="on">
 									<div class="fields">
 										<div class="field">
-											<label for="email">Email</label>
+											<label for="login-email">Email</label>
 											<input type="email" 
 														name="email" 
 														id="login-email" 
@@ -224,7 +264,7 @@
 								<form method="post" action="/forgot-password" autocomplete="on">
 									<div class="fields">
 										<div class="field">
-											<label for="email">Email</label>
+											<label for="forgot-email">Email</label>
 											<input type="email" 
 														name="email" 
 														id="forgot-email" 
@@ -265,7 +305,7 @@
 														autocomplete="name">
 										</div>
 										<div class="field half">
-											<label for="email">Email</label>
+											<label for="contact-email">Email</label>
 											<input type="email" 
 														name="email" 
 														id="contact-email" 
