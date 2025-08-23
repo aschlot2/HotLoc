@@ -36,8 +36,8 @@
 			base-uri 'self';
 			img-src 'self' data:;
 			style-src 'self' 'unsafe-inline';
-			script-src 'self';
-			connect-src 'self';
+			script-src 'self' https://cdn.jsdelivr.net;
+			connect-src 'self' https://api.emailjs.com;
 			font-src 'self' data:;
 			frame-ancestors 'none';
 			object-src 'none';
@@ -187,7 +187,7 @@
 							<article id="customer">
 								<h2 class="major">Customer</h2>
 								<p>
-									Please enter the PIN we sent you to unlock your order.
+									Please enter the PIN we sent to unlock your order.
 								</p>
 								<form method="post" action="/pin" autocomplete="on">
 									<div class="fields">
@@ -287,7 +287,7 @@
 						<!-- Contact -->
 							<article id="contact">
 								<h2 class="major">Contact</h2>
-								<form method="post" action="/contact">
+								<form method="post" action="#">
 									<div class="fields">
 
 										<!-- Honeypot to catch bots -->
@@ -599,12 +599,16 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 		<!-- BG -->
 			<div id="bg"></div>
 
+		<!-- EmailJS SDK -->
+		<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
+
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js" defer></script>
 			<script src="assets/js/browser.min.js" defer></script>
 			<script src="assets/js/breakpoints.min.js" defer></script>
 			<script src="assets/js/util.js" defer></script>
 			<script src="assets/js/main.js" defer></script>
+			<script src="assets/js/contact-email.js" defer></script>
 
 	</body>
 </html>
