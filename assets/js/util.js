@@ -6,7 +6,7 @@
 	 */
 	$.fn.navList = function() {
 
-		var	$this = $(this);
+		var	$this = $(this),
 			$a = $this.find('a'),
 			b = [];
 
@@ -43,7 +43,7 @@
 
 		// No elements?
 			if (this.length == 0)
-				return $this;
+				return this;
 
 		// Multiple elements?
 			if (this.length > 1) {
@@ -51,7 +51,7 @@
 				for (var i=0; i < this.length; i++)
 					$(this[i]).panel(userConfig);
 
-				return $this;
+				return this;
 
 			}
 
@@ -292,7 +292,7 @@
 
 					});
 
-		return $this;
+		return this;
 
 	};
 
@@ -308,7 +308,7 @@
 
 		// No elements?
 			if (this.length == 0)
-				return $this;
+				return this;
 
 		// Multiple elements?
 			if (this.length > 1) {
@@ -316,7 +316,7 @@
 				for (var i=0; i < this.length; i++)
 					$(this[i]).placeholder();
 
-				return $this;
+				return this;
 
 			}
 
